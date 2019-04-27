@@ -2,22 +2,17 @@ import javafx.scene.layout.Pane;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.ImageCursor;
 import javafx.scene.text.Text;
 import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DialogPane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
@@ -31,6 +26,7 @@ public class Magic extends Application{
 	private Image sparkle;
 	private Image button;
 	private double random;
+	private AudioClip audio;
 	
 	
 	public void start(Stage stage){
@@ -44,10 +40,21 @@ public class Magic extends Application{
 		button = new Image("file:button.png");
 		ImageView view = new ImageView();	
 		
+		audio = new AudioClip("file:audio.mp3");
+		
 		BackgroundImage bg1 = new BackgroundImage(new Image("file:bg1.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 			
 		BackgroundImage bg2 = new BackgroundImage(new Image("file:bg2.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
+		
+		BackgroundImage bg3 = new BackgroundImage(new Image("file:bg3.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
+		
+		BackgroundImage bg4 = new BackgroundImage(new Image("file:bg4.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
+		
+		BackgroundImage bg5 = new BackgroundImage(new Image("file:bg5.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
 		
 		Pane pane = new Pane(view);
@@ -61,10 +68,12 @@ public class Magic extends Application{
 			public void handle(MouseEvent me){
 				if(bgCheck){
 					pane.setBackground(new Background(bg2));
+					audio.play();
 					bgCheck = false;
 					view.setImage(button);
 					view.setX(130);
 					view.setY(570);
+					
 				}
 			}
 			
@@ -76,8 +85,16 @@ public class Magic extends Application{
 				
 				if(!bgCheck){
 					random = Math.random() * 10;
-					
-					pane.setBackground(new Background(bg1));
+					if(random <=2.24)
+						pane.setBackground(new Background(bg2));
+					else if(random >= 2.25 && random <= 4.99)
+						pane.setBackground(new Background(bg3));
+					else if(random >=5 && random <= 7.24)
+						pane.setBackground(new Background(bg4));
+					else
+						pane.setBackground(new Background(bg5));
+					audio.play();
+					System.out.println(random);
 					
 				}
 			}
