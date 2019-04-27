@@ -1,0 +1,4 @@
+# ignore working files for graphics design and images as well as class files
+*.class
+*.xcf
+Image.*
