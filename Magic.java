@@ -31,36 +31,37 @@ public class Magic extends Application{
 	
 	public void start(Stage stage){
 		stage.setTitle("Magic 8 Ball");
+		stage.setResizable(false);
 		
 		stage.getIcons().add(new Image("file:icon.png"));
 		
 		sparkle = new Image("cursor.png");
 		ImageCursor cursor = new ImageCursor(sparkle);
 		
-		button = new Image("file:button.png");
+		button = new Image("file:button.png", 270, 100, false, false);
 		ImageView view = new ImageView();	
 		
 		audio = new AudioClip("file:audio.mp3");
 		
-		BackgroundImage bg1 = new BackgroundImage(new Image("file:bg1.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+		BackgroundImage bg1 = new BackgroundImage(new Image("file:bg1.png", 500, 600, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 			
-		BackgroundImage bg2 = new BackgroundImage(new Image("file:bg2.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+		BackgroundImage bg2 = new BackgroundImage(new Image("file:bg2.png", 500, 600, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
 		
-		BackgroundImage bg3 = new BackgroundImage(new Image("file:bg3.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+		BackgroundImage bg3 = new BackgroundImage(new Image("file:bg3.png", 500, 600, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
 		
-		BackgroundImage bg4 = new BackgroundImage(new Image("file:bg4.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+		BackgroundImage bg4 = new BackgroundImage(new Image("file:bg4.png", 500, 600, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
 		
-		BackgroundImage bg5 = new BackgroundImage(new Image("file:bg5.png", 600, 700, false, true), BackgroundRepeat.NO_REPEAT, 
+		BackgroundImage bg5 = new BackgroundImage(new Image("file:bg5.png", 500, 600, false, true), BackgroundRepeat.NO_REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);	
 		
 		Pane pane = new Pane(view);
 		pane.setBackground(new Background(bg1));
 		
-		Scene scene = new Scene(pane, 600, 700);
+		Scene scene = new Scene(pane, 490, 600);
 		scene.setCursor(cursor);
 		
 		pane.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -71,8 +72,8 @@ public class Magic extends Application{
 					audio.play();
 					bgCheck = false;
 					view.setImage(button);
-					view.setX(130);
-					view.setY(570);
+					view.setX(115);
+					view.setY(490);
 					
 				}
 			}
