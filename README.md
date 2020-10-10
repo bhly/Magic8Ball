@@ -1,7 +1,5 @@
 # Magic8Ball
-A magic 8 ball simulator featuring original graphics drawn in GIMP.
-
-Screenshots: 
-
-https://github.com/brynnlet/Magic8Ball/blob/master/screenshot.JPG
-https://github.com/brynnlet/Magic8Ball/blob/master/screenshot2.JPG
+Title: Magic 8 Ball
+Author: Brynn Haley
+Version: updated October 10 2020
+Description: A JavaFX based magic 8 ball simulator. Graphics drawn in GIMP.
